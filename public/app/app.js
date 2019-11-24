@@ -1,17 +1,14 @@
-import { handleStatus, log } from './utils/promise-helpers.js';
+import { log } from './utils/promise-helpers.js';
 import './utils/arrays-helpers.js';
+import { notaService as service} from './nota/service.js'
 
-const sumItems = code => notas => notas
-    .$flatMap(nota => nota.itens)
-    .filter(item => item.codigo == code)
-    .reduce((total, item) => total + item.valor, 0);
+
 
 document
 .querySelector('#myButton')
 .onclick = () => 
-    fetch('http://localhost:3000/notas')
-    .then(handleStatus)
-    .then(sumItems('2113'))
+    service
+    .sumItems('2143')
     .then(console.log)
     .catch(console.log);
 
