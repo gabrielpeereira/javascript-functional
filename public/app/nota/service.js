@@ -1,7 +1,7 @@
 import { handleStatus } from '../utils/promise-helpers.js';
-import { partialize } from '../utils/operators.js';
+import { partialize, compose } from '../utils/operators.js';
 
-const API = 'http://localhost:3000/notasx';
+const API = 'http://localhost:3000/notas';
 
 const getItemsFromNotas = notas => notas.$flatMap(nota => nota.itens);
 const filterItemsByCode = (code, items) => items.filter(item => item.codigo == code);
